@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT — Master System Blueprint v2.0</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{brand:{50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'},accent:{50:'#fef3c7',400:'#f59e0b',500:'#d97706',600:'#b45309',700:'#92400e'},danger:{400:'#f87171',500:'#ef4444'},success:{400:'#4ade80',500:'#22c55e',600:'#16a34a'}},fontFamily:{mitr:['Mitr','sans-serif']}}}}</script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'default',securityLevel:'loose'});</script>
+
+<style>
+  * { font-family: 'Mitr', sans-serif; }
+  html { scroll-behavior: smooth; }
+  
+  /* Content cards */
+  .content-card {
+    background: #fff; border-radius: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.06);
+    border: 1px solid #e2e8f0; padding: 32px; margin-bottom: 32px; overflow-x: auto;
+  }
+  .content-card h2 { font-size: 24px; font-weight: 600; color: #1e40af; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #bfdbfe; }
+  .content-card h3 { font-size: 18px; font-weight: 500; color: #1d4ed8; margin-top: 24px; margin-bottom: 12px; }
+  
+  /* Badges */
+  .fr-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .fr-badge.functional { background: #dbeafe; color: #1e40af; }
+  .fr-badge.nonfunctional { background: #fef3c7; color: #92400e; }
+  
+  /* Sidebar */
+  #sidebar { transform: translateX(0); transition: transform .3s; }
+  #main-content { margin-left: 288px; transition: margin-left .3s; }
+  @media (max-width: 1023px) { #sidebar { transform: translateX(-288px); } #main-content { margin-left: 0; } }
+  
+  .nav-item { display: flex; align-items: center; gap: 8px; padding: 6px 12px; font-size: 13px; color: #475569; border-radius: 6px; transition: all .15s; text-decoration: none; }
+  .nav-item:hover { background: #e2e8f0; color: #1e40af; }
+  .nav-dot { width: 5px; height: 5px; border-radius: 50%; background: #94a3b8; flex-shrink: 0; }
+  .nav-item:hover .nav-dot { background: #3b82f6; }
+  .nav-group-label { font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px 6px; }
+  .nav-divider { margin: 8px 12px; border-top: 1px solid #e2e8f0; }
+  
+  /* Diagrams — 80% centered */
+  .mermaid-container { width: 100%; overflow-x: auto; }
+  .mermaid-container .mermaid { max-width: 80%; margin: 0 auto; }
+  .mermaid-container .mermaid svg { max-width: 100% !important; height: auto !important; }
+  
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #eff6ff; text-align: left; padding: 10px 16px; font-size: 14px; font-weight: 500; color: #1e40af; border-bottom: 2px solid #bfdbfe; }
+  td { padding: 10px 16px; font-size: 14px; color: #334155; border-bottom: 1px solid #f1f5f9; }
+  tr:hover td { background: rgba(239,246,255,.5); }
+  
+  /* Zoom modal */
+  #zoom-modal { display: none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:50; align-items:center; justify-content:center; padding:16px; }
+  #zoom-modal.show { display: flex; }
+  
+  @media print { #sidebar, #sidebar-toggle { display:none!important; } #main-content { margin-left:0!important; padding:0!important; } .content-card { break-inside:avoid; box-shadow:none; border:1px solid #e2e8f0; } }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-mitr">
+
+<script>
+function toggleSidebar(){var sb=document.getElementById('sidebar');var mc=document.getElementById('main-content');var isHidden=sb.style.transform==='translateX(-288px)'||(sb.style.transform===''&&window.innerWidth<1024);if(isHidden){sb.style.transform='translateX(0)';if(window.innerWidth>=1024)mc.style.marginLeft='288px'}else{sb.style.transform='translateX(-288px)';mc.style.marginLeft='0'}}
+function openZoom(id){var s=document.getElementById(id);var z=document.getElementById('zoom-content');z.innerHTML=s.outerHTML;document.getElementById('zoom-modal').classList.add('show');setTimeout(function(){mermaid.run({querySelector:'#zoom-content .mermaid'})},100)}
+function closeZoom(){document.getElementById('zoom-modal').classList.remove('show')}
+</script>
+
+<!-- Sidebar Toggle -->
+<button id="sidebar-toggle" class="fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow border hover:bg-slate-50 transition" onclick="toggleSidebar()">
+  <i class="fa-solid fa-bars text-xl text-brand-600"></i>
+</button>
+
+<!-- Sidebar -->
+<nav id="sidebar" class="fixed top-0 left-0 h-screen w-72 bg-slate-50 border-r border-slate-200 overflow-y-auto z-40 shadow-sm" style="transition:transform .3s">
+  <div class="sticky top-0 bg-gradient-to-br from-brand-700 to-brand-900 px-5 py-4 z-10">
+    <div class="flex items-center justify-between">
+      <h1 class="text-base font-bold text-white">📄 PROJECT</h1>
+      <span class="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-medium">v2.0</span>
+    </div>
+    <p class="text-[11px] text-brand-200 mt-0.5">Master Blueprint</p>
+    <div class="mt-3 flex items-center gap-2">
+      <div class="bg-white/20 rounded-full h-1 flex-1"><div class="bg-white rounded-full h-1" style="width:0%"></div></div>
+      <span class="text-[10px] text-brand-200 font-medium">0/11</span>
+    </div>
+  </div>
+  <div class="px-3 py-4 space-y-0.5">
+    <!-- ADD PARTS HERE -->
+  </div>
+  <div class="sticky bottom-0 bg-slate-50 border-t border-slate-200 px-5 py-3">
+    <p class="text-[10px] text-slate-400">tkws + Jung-Sa © 2026</p>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main id="main-content" class="lg:ml-72 min-h-screen w-full px-6 lg:px-10 py-10 transition-all duration-300">
+
+<!-- ADD CONTENT CARDS HERE -->
+
+</main>
+
+<!-- Zoom Modal -->
+<div id="zoom-modal" onclick="closeZoom()">
+  <div class="bg-white rounded-2xl p-8 max-w-[90vw] max-h-[90vh] overflow-auto shadow-2xl" onclick="event.stopPropagation()">
+    <div class="flex justify-between items-center mb-4">
+      <span class="font-semibold text-brand-800">Diagram Detail</span>
+      <button onclick="closeZoom()" class="text-slate-400 hover:text-slate-600 text-xl">&times;</button>
+    </div>
+    <div id="zoom-content" class="flex justify-center"></div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+# BSF Framework
+
+**Blueprint Software Factory** — AI-Assisted Software Development Methodology
+
+---
+
+## What is BSF?
+
+BSF is a **structured methodology** for designing and building software with AI agents. Instead of telling an AI "build me an app", BSF gives both you and the AI a clear pipeline — from requirements to deployment.
+
+```
+Your Idea → BSF Pipeline → Blueprint → AI Builds → Deploy
+```
+
+---
+
+## Why BSF?
+
+| Without BSF | With BSF |
+|-------------|----------|
+| "Build an app" → AI guesses | 5-part Blueprint → AI knows exactly what |
+| AI builds wrong thing | Stakeholder reviews before code |
+| No documentation | Blueprint.html = living docs |
+| One AI, one perspective | Multi-agent: specialist teams |
+| Build first, think later | Research first, build second |
+
+---
+
+## The Pipeline (5 Parts)
+
+```
+PHASE 1 — Stakeholder (Human Review)    PHASE 2 — Developer (AI Builds)
+────────────────────────────────        ─────────────────────────────
+00 — Requirements                       03 — Database
+01 — Core Function                      04 — API
+02 — Interface UI                       05 — Implementation
+        │                                      │
+        └── APPROVE ──────────────────────────┘
+```
+
+---
+
+## Quick Start
+
+1. **Read the docs** → [`docs/01-what-is-bsf.md`](docs/01-what-is-bsf.md)
+2. **Pick your agent** → [`prompts/`](prompts/) — copy-paste ready
+3. **Follow pipeline** → [`docs/02-pipeline.md`](docs/02-pipeline.md)
+4. **See examples** → [`docs/05-examples.md`](docs/05-examples.md)
+
+---
+
+## Works With Any AI Agent
+
+| Agent | Prompt | Guide |
+|-------|--------|-------|
+| Claude Code | [`prompts/claude-code.md`](prompts/claude-code.md) | Copy to CLAUDE.md |
+| OpenAI Codex | [`prompts/codex.md`](prompts/codex.md) | Use as system prompt |
+| Cursor | [`prompts/cursor.md`](prompts/cursor.md) | Add to .cursorrules |
+| GitHub Copilot | [`prompts/copilot.md`](prompts/copilot.md) | Add to .github/copilot-instructions.md |
+| Hermes Agent | [`integrations/hermes/`](integrations/hermes/) | Skills + config |
+| Any | [`prompts/generic.md`](prompts/generic.md) | Template |
+
+---
+
+## Philosophy
+
+> **"Think before you build"**
+>
+> Phase 0: Research (Market, Legal, Finance)
+> Phase 1: Blueprint (Human-readable spec)
+> Phase 2: Build (AI executes from spec)
+
+---
+
+## Version
+
+**v4.0** — Multi-Agent Organization (June 2026)
+
+See [`CHANGELOG.md`](CHANGELOG.md) for full evolution v1 → v4.
+
+---
+
+## Author
+
+**Tikawut Wongtuntisakul**  
+System Analyst | Chonburi, Thailand  
+[LinkedIn](https://linkedin.com/in/tikawut-wongtuntisakul-94b109156)
+
+---
+
+## License
+
+MIT — [`LICENSE`](LICENSE)

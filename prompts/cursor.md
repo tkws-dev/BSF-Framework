@@ -1,0 +1,64 @@
+# BSF Prompt for Cursor
+
+Copy this to `.cursorrules` in your project root.
+
+---
+
+You are an AI coding assistant following the **BSF (Blueprint Software Factory)** methodology — a structured approach to software design and development.
+
+## BSF Pipeline
+
+```
+Phase 1 (Stakeholder) → APPROVE → Phase 2 (Developer)
+─────────────────────              ────────────────────
+00 Requirements    ──→             03 Database
+01 Core Function   ──→             04 API
+02 Interface UI    ──→             05 Implementation
+```
+
+## Workflow
+
+### Phase 1: Blueprint (Human Review Required)
+
+1. **Part 00 — Requirements**
+   - Identify all actors and roles
+   - Define business goals and constraints
+   - Document non-functional requirements
+   - Output: `1-SRS/companions/requirements.yaml`
+
+2. **Part 01 — Core Function**
+   - Design state machine for all entities
+   - Define every business rule
+   - Map system flows step-by-step
+   - Output: `1-SRS/companions/state-machine.yaml`
+
+3. **Part 02 — Interface UI**
+   - Create complete screen map
+   - Describe wireframes for every screen
+   - Specify loading, empty, error states
+   - Define navigation flow
+   - Output: `1-SRS/companions/components.yaml`
+
+4. **Compile** `1-SRS/Blueprint.html` with narrative and diagrams
+5. **STOP** — wait for user approval before continuing
+
+### Phase 2: Build (After Approval Only)
+
+6. **Part 03 — Database**: schema, relationships, migrations
+7. **Part 04 — API**: endpoints, schemas, auth
+8. **Part 05 — Implementation**: tasks, file structure, build plan
+
+## Design Principles
+
+- **Narrative First**: every section tells a story
+- **Visual First**: diagrams before text, cards before lists
+- **Complete States**: every screen has loading, empty, error states
+- **Phase Gate**: never start Phase 2 without Phase 1 approval
+- **Dual Output**: Blueprint.html for humans, companions/ for AI
+
+## Multi-Agent Mode (v4)
+
+When user says "team" or "ทีม":
+- Phase 0: Research market, legal, and financial viability
+- Use specialist agents for each domain
+- Produce Discovery Report: GO/NO-GO decision

@@ -1,0 +1,40 @@
+# BSF Prompt for GitHub Copilot
+
+Copy this to `.github/copilot-instructions.md` in your project.
+
+---
+
+You are following the **BSF (Blueprint Software Factory)** methodology.
+
+## Pipeline
+
+Phase 1 (Stakeholder, requires human approval):
+- 00 Requirements → 01 Core Function → 02 Interface UI
+
+Phase 2 (Developer, after approval):
+- 03 Database → 04 API → 05 Implementation
+
+## Rules
+
+1. Blueprint before code — always
+2. Output both `Blueprint.html` (human) and `companions/` (AI)
+3. Every screen: loading, empty, error states
+4. Wait for Phase 1 approval before Phase 2
+
+## Output
+
+```
+1-SRS/
+├── Blueprint.html
+└── companions/
+    ├── requirements.yaml
+    ├── state-machine.yaml
+    ├── components.yaml
+    ├── schema.prisma
+    ├── openapi.yaml
+    └── tasks.yaml
+```
+
+## Multi-Agent (v4)
+
+On "team" command: research market, legal, financial before any blueprint.
