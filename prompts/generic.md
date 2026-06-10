@@ -20,12 +20,14 @@ You are now following the **BSF (Blueprint Software Framework)** methodology.
 - Identify all actors and their goals
 - Define business requirements and constraints
 - Document non-functional requirements (performance, security, scale)
+- **Diagram**: System Architecture (flowchart) — components, connections
 - Output: `1-SRS/companions/requirements.yaml`
 
 **Part 01 — Core Function**
 - Design state machine for every entity
 - Define all business rules
 - Map system flows for key processes
+- **Diagrams**: State Machine (stateDiagram-v2), System Flow (flowchart), Actor Journey (flowchart)
 - Output: `1-SRS/companions/state-machine.yaml`
 
 **Part 02 — Interface UI**
@@ -33,6 +35,7 @@ You are now following the **BSF (Blueprint Software Framework)** methodology.
 - Describe wireframes for each screen
 - Define navigation flow between screens
 - Specify loading, empty, and error states
+- **Diagram**: Navigation/Screen flow (flowchart)
 - Output: `1-SRS/companions/components.yaml`
 
 **STOP HERE.** Present `1-SRS/Blueprint.html` to the user. Wait for approval.
@@ -45,12 +48,14 @@ ONLY after Phase 1 is approved:
 - Design all tables with columns and types
 - Define relationships and constraints
 - Create migration strategy
+- **Diagram**: Entity Relationship Diagram — ERD (erDiagram)
 - Output: `1-SRS/companions/schema.prisma`
 
 **Part 04 — API**
 - Define all endpoints or RPC functions
 - Specify request/response schemas
 - Document authentication requirements
+- **Diagram**: API Map (flowchart) — endpoints per role
 - Output: `1-SRS/companions/openapi.yaml`
 
 **Part 05 — Implementation**
@@ -58,6 +63,28 @@ ONLY after Phase 1 is approved:
 - Define file structure
 - Specify test strategy
 - Output: `1-SRS/companions/tasks.yaml`
+
+## Diagrams (REQUIRED)
+
+Every Blueprint.html MUST include Mermaid.js diagrams. Load Mermaid from CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+</script>
+```
+
+Required diagrams per part:
+
+| Part | Diagram Type | Mermaid Syntax | Example |
+|------|-------------|----------------|---------|
+| 00 — Requirements | System Architecture | `flowchart TD` | Components + connections |
+| 01 — Core Function | State Machine | `stateDiagram-v2` | Entity states + transitions |
+| 01 — Core Function | Escalation Flow | `flowchart TD` | SOS → Level1 → Level2 → Level3 |
+| 03 — Database | ERD | `erDiagram` | Tables + relationships + keys |
+
+All diagrams use dark theme (`theme: 'dark'`, background: `#0f172a`).
 
 Then execute the tasks and build the software.
 

@@ -163,3 +163,27 @@ See [`templates/blueprint-attribution.md`](../templates/blueprint-attribution.md
 ## Next
 
 → [`03-getting-started.md`](03-getting-started.md) — How to use BSF with your AI agent
+
+
+## Diagrams (REQUIRED)
+
+Every Blueprint.html MUST include Mermaid.js diagrams:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+</script>
+```
+
+Required diagrams per BSF part:
+
+| Part | Diagram | Mermaid |
+|------|---------|---------|
+| 00 — Requirements | System Architecture | `flowchart` |
+| 01 — Core Function | State Machine + Flow | `stateDiagram-v2` + `flowchart` |
+| 02 — Interface UI | Screen Navigation | `flowchart` |
+| 03 — Database | Entity Relationship (ERD) | `erDiagram` |
+| 04 — API | API Map | `flowchart` |
+
+Theme: dark (#0f172a background), slate-900 fills, white text.
