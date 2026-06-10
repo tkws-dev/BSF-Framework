@@ -81,6 +81,8 @@ Required diagrams per part:
 |------|-------------|----------------|---------|
 | 00 — Requirements | System Architecture | `flowchart TD` | Components + connections |
 | 01 — Core Function | Sequence — Happy Path | `sequenceDiagram` | SOS → Alert → Response |
+| 01 — Core Function | DFD Level 0 (Context) | `flowchart` | System + external entities + data flows |
+| 01 — Core Function | DFD Level 1 (Processes) | `flowchart` | Inputs → Processes → Outputs |
 | 01 — Core Function | Sequence — Escalation | `sequenceDiagram` | Timeout → Level2 → Level3 |
 | 01 — Core Function | State Machine | `stateDiagram-v2` | Entity states + transitions |
 | 01 — Core Function | Escalation Flow | `flowchart TD` | SOS → Level1 → Level2 → Level3 |

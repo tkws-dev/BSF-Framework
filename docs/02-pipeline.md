@@ -182,6 +182,8 @@ Required diagrams per BSF part:
 |------|---------|---------|
 | 00 — Requirements | System Architecture | `flowchart` |
 | 01 — Core Function | Sequence — Happy Path | `sequenceDiagram` | SOS → Alert → Response |
+| 01 — Core Function | DFD Level 0 (Context) | `flowchart` | System + external entities + data flows |
+| 01 — Core Function | DFD Level 1 (Processes) | `flowchart` | Inputs → Processes → Outputs |
 | 01 — Core Function | Sequence — Escalation | `sequenceDiagram` | Timeout → Level2 → Level3 |
 | 01 — Core Function | State Machine + Flow | `stateDiagram-v2` + `flowchart` |
 | 02 — Interface UI | Screen Navigation | `flowchart` |
