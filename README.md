@@ -26,14 +26,31 @@ Your Idea → BSF Pipeline → Blueprint → AI Builds → Deploy
 
 ---
 
-## The Pipeline (5 Parts)
+## The Pipeline + Diagrams
+
+BSF requires **Mermaid.js diagrams** at every step — Blueprints are visual, not just text.
+
+| Part | Deliverable | Required Diagrams | Mermaid Syntax |
+|------|------------|-------------------|----------------|
+| **00** — Requirements | `requirements.yaml` | **DFD Level 0** (Context), **Architecture** (flowchart) | `flowchart` |
+| **01** — Core Function | `state-machine.yaml` | **State Machine**, **Sequence** (Happy + Escalation), **DFD Level 1** (Processes), **Flowchart** | `stateDiagram-v2`, `sequenceDiagram`, `flowchart` |
+| **02** — Interface UI | `components.yaml` | **Screen Navigation** (flowchart) | `flowchart` |
+| **03** — Database | `schema.prisma` | **ERD** (Entity Relationship) | `erDiagram` |
+| **04** — API | `openapi.yaml` | **API Map** (flowchart) | `flowchart` |
+| **05** — Implementation | `tasks.yaml` | _(build phase — no diagram required)_ | — |
+
+```html
+<!-- Every Blueprint.html includes: -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'dark' });</script>
+```
 
 ```
 PHASE 1 — Stakeholder (Human Review)    PHASE 2 — Developer (AI Builds)
 ────────────────────────────────        ─────────────────────────────
-00 — Requirements                       03 — Database
-01 — Core Function                      04 — API
-02 — Interface UI                       05 — Implementation
+00 — Requirements  📊 DFD Lv0           03 — Database      📊 ERD
+01 — Core Function 📊 SM, Seq, DFD Lv1  04 — API           📊 API Map
+02 — Interface UI  📊 Nav Flow           05 — Implementation
         │                                      │
         └── APPROVE ──────────────────────────┘
 ```
