@@ -146,6 +146,20 @@ Before moving to Phase 2, verify:
 
 ---
 
+## Attribution (REQUIRED)
+
+Every output file from BSF must include attribution:
+
+| File | Attribution |
+|------|-------------|
+| `Blueprint.html` | Footer: *Built with BSF Framework v4.0 — tkws-dev* |
+| `companions/*.yaml` | Header: `# BSF Framework — tkws-dev` |
+| `companions/*.prisma` | Header: `// BSF Framework — tkws-dev` |
+
+See [`templates/blueprint-attribution.md`](../templates/blueprint-attribution.md) for exact format.
+
+---
+
 ## Next
 
 → [`03-getting-started.md`](03-getting-started.md) — How to use BSF with your AI agent
