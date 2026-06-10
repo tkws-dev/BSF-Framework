@@ -1,6 +1,6 @@
 # BSF Framework
 
-**Blueprint Software Factory** — AI-Assisted Software Development Methodology
+**Blueprint Software Framework** — AI-Assisted Software Development Methodology
 
 ---
 

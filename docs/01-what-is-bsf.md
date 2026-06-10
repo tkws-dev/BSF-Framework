@@ -1,6 +1,6 @@
 # What is BSF?
 
-BSF (Blueprint Software Factory) is a **methodology** for designing software with AI agents.
+BSF (Blueprint Software Framework) is a **methodology** for designing software with AI agents.
 
 ---
 

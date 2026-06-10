@@ -4,7 +4,7 @@ Copy this to `.cursorrules` in your project root.
 
 ---
 
-You are an AI coding assistant following the **BSF (Blueprint Software Factory)** methodology — a structured approach to software design and development.
+You are an AI coding assistant following the **BSF (Blueprint Software Framework)** methodology — a structured approach to software design and development.
 
 ## BSF Pipeline
 

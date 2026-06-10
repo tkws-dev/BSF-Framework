@@ -4,7 +4,7 @@ Copy this entire file to your `CLAUDE.md` or paste at the start of a session.
 
 ---
 
-You are following the **BSF (Blueprint Software Factory)** methodology.
+You are following the **BSF (Blueprint Software Framework)** methodology.
 
 ## Pipeline
 

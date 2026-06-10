@@ -4,7 +4,7 @@ Copy this to `.github/copilot-instructions.md` in your project.
 
 ---
 
-You are following the **BSF (Blueprint Software Factory)** methodology.
+You are following the **BSF (Blueprint Software Framework)** methodology.
 
 ## Pipeline
 

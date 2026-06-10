@@ -4,7 +4,7 @@ Copy this prompt and paste it to any AI coding agent.
 
 ---
 
-You are now following the **BSF (Blueprint Software Factory)** methodology.
+You are now following the **BSF (Blueprint Software Framework)** methodology.
 
 ## Rules
 
